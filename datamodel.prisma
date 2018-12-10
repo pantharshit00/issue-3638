@@ -1,0 +1,17 @@
+type User {
+  id: ID! @unique
+  name: String
+  Participant: Participant
+}
+
+type Participant @model {
+  id: ID! @unique
+  User: User!
+  dietaryRestrictions: [EnumDietaryRestriction!]!
+}
+
+enum EnumDietaryRestriction {
+  Diabetic
+  GlutenFree
+  HighProtein
+}
